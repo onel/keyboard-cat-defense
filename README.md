@@ -6,6 +6,7 @@ When you see your cat getting close, you only have seconds before imminent disas
 
 This gnome extension offers a visual method to disable/enable your keyboard so you can continue using your laptop/PC even in this state:
 
+<img src="https://github.com/onel/leyboard-cat-defense/assets/1862405/796e5580-e2c4-435c-81a9-ee30ca0a7625" width="500px" />
 
 
 ## About
