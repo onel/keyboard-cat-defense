@@ -38,7 +38,13 @@ git clone https://github.com/onel/keyboard-cat-defense
 unzip -o ./keyboard-cat-defense/keyboard-cat-defense@onel.github.io.zip -d ~/.local/share/gnome-shell/extensions/keyboard-cat-defense@onel.github.io
 ```
 
-3. restart GNOME Shell by command or reboot your system
+3. enable the extension
+
+```sh
+gnome-extensions enable keyboard-cat-defense@onel.github.io
+```
+
+3. restart GNOME Shell reboot your system
 
 ## License
 
