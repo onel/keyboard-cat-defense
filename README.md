@@ -14,6 +14,7 @@ Most methods to disable a keyboard, involve using the terminal (or the keyboard 
 
 This extension offers a visual method to enable/disable the keyboard so you can continue using your system.
 
+![image](https://github.com/onel/leyboard-cat-defense/assets/1862405/e1459bb2-754a-4c65-93af-bf1f61862dec)
 
 
 ## Instalation
