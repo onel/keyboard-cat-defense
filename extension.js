@@ -5,8 +5,6 @@ const Main = imports.ui.main
 const PanelMenu = imports.ui.panelMenu
 const PopupMenu = imports.ui.popupMenu
 
-let initialized = false
-
 let KeyboardListMenu = GObject.registerClass(
     class KeyboardListMenu extends PanelMenu.Button {
         _init() {
@@ -25,9 +23,9 @@ let KeyboardListMenu = GObject.registerClass(
 
             this.menu.connect('open-state-changed', (menu, open) => {
                 // when opening for the first time
-                if (open && !initialized) {
+                if (open && !this.initialized) {
                     this._updateKeyboardList()
-                    initialized = true
+                    this.initialized = true
                 }
             })
         }
@@ -51,6 +49,8 @@ let KeyboardListMenu = GObject.registerClass(
                 keyboards.forEach((keyboard) => {
                     let toggleItem = new PopupMenu.PopupSwitchMenuItem(keyboard.name, true) // Create a toggle button for the keyboard
 
+                    this.menu.addMenuItem(toggleItem)
+
                     toggleItem.connect('toggled', (item) => {
                         if (item.state) {
                             this._enableKeyboard(keyboard.id)
@@ -60,8 +60,6 @@ let KeyboardListMenu = GObject.registerClass(
 
                         return Clutter.EVENT_STOP
                     })
-
-                    this.menu.addMenuItem(toggleItem)
                 })
             }
         }
