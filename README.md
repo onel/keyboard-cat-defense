@@ -22,7 +22,7 @@ This extension offers a visual method to enable/disable the keyboard so you can 
 
 #### GNOME extension store (recommended)
 
-You can get the extension from here. **Coming soon**
+You can get the extension from [here](https://extensions.gnome.org/extension/6819/keyboard-cat-defense/).
 
 ### Manually
 
