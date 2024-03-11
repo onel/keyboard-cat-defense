@@ -1,6 +1,6 @@
 {
   "name": "Keyboard cat defense",
-  "description": "Protect your keyboard with the most advance system. See your cat getting close? Disable the keyboard and continue using your system.",
+  "description": "Protect your keyboard with the most advance system. Disable the keyboard in seconds and continue using your system. The extension requires xinput as a dependency",
   "uuid": "keyboard-cat-defense@onel.github.io",
   "shell-version": [
     "3.36"

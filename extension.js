@@ -158,6 +158,7 @@ let KeyboardListExtension = class KeyboardListExtension {
 
     disable() {
         this._indicator.destroy()
+        this._indicator = null
     }
 }
 
