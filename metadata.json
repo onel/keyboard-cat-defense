@@ -3,7 +3,7 @@
   "description": "Protect your keyboard with the most advance system. Disable the keyboard in seconds and continue using your system. The extension requires xinput as a dependency",
   "uuid": "keyboard-cat-defense@onel.github.io",
   "shell-version": [
-    "3.36"
+    "3.36", "43"
   ],
   "url": "https://github.com/onel/keyboard-cat-defense",
   "version": 1
