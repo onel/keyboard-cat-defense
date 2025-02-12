@@ -19,7 +19,7 @@ let KeyboardListMenu = GObject.registerClass(
 
             // even though we remove this item in _updateKeyboardList(), we need to add it
             // if we don't, the dropdown menu won't open at all
-            this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem('List of connected keyboards:'))
+            this.menu.addMenuItem(new PopupMenu.PopupMenuItem('List of connected keyboards:'))
 
             this.menu.connect('open-state-changed', (menu, open) => {
                 // when opening for the first time
@@ -36,7 +36,7 @@ let KeyboardListMenu = GObject.registerClass(
         _updateKeyboardList() {
             this.menu.removeAll()
 
-            this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem('List of connected keyboards:'))
+            this.menu.addMenuItem(new PopupMenu.PopupMenuItem('List of connected keyboards:'))
 
             // Get the list of connected keyboards
             let keyboards = this._getConnectedKeyboards()
