@@ -7,6 +7,7 @@ const PopupMenu = imports.ui.popupMenu
 
 let KeyboardListMenu = GObject.registerClass(
     class KeyboardListMenu extends PanelMenu.Button {
+        displayEverything = false
         _init() {
             super._init(0.0, "Keyboard cat defense")
 
@@ -35,6 +36,18 @@ let KeyboardListMenu = GObject.registerClass(
          */
         _updateKeyboardList() {
             this.menu.removeAll()
+
+            let toggleItem = new PopupMenu.PopupSwitchMenuItem('Display every input device', this.displayEverything)
+            this.menu.addMenuItem(toggleItem)
+            toggleItem.connect('toggled', (item) => {
+                if (item.state) {
+                    this.displayEverything = true
+                    this._updateKeyboardList()
+                } else {
+                    this.displayEverything = false
+                    this._updateKeyboardList()
+                }
+            })
 
             this.menu.addMenuItem(new PopupMenu.PopupMenuItem('List of connected keyboards:'))
 
@@ -90,28 +103,30 @@ let KeyboardListMenu = GObject.registerClass(
                 //     }
                 // }
 
-                if (line.includes('slave  keyboard')) {
-                    let parts = line.split('\t')
+                let parts = line.split('\t')
+                if (!this.displayEverything) {
+                    if (!line.includes('slave  keyboard')) {
+                        continue
+                    }
 
                     // make sure the name also includes the word keyboard
                     if (!parts[0].includes('keyboard')) {
                         continue
                     }
+                }
 
-                    // get the device ID
-                    let keyId = keyboardIdRegex.exec(line)
-                    if (keyId) {
-                        keyId = keyId[1]
+                // get the device ID
+                let keyId = keyboardIdRegex.exec(line)
+                if (keyId) {
+                    keyId = keyId[1]
 
-                        // for the keyboard name, trim the white space
-                        // and loose the first chars
-                        const keyboardName = parts[0].trim().slice(2)
-                        keyboards.push({
-                            name: keyboardName,
-                            id: keyId,
-                        })
-                    }
-
+                    // for the keyboard name, trim the white space
+                    // and loose the first chars
+                    const keyboardName = parts[0].trim().slice(2)
+                    keyboards.push({
+                    name: keyboardName,
+                    id: keyId,
+                    })
                 }
             }
 
