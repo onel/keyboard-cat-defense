@@ -133,7 +133,7 @@ let KeyboardListMenu = GObject.registerClass(
         }
 
         /**
-         * Enables a keboard
+         * Enables a keyboard
          * @param  {Number} keyboardId
          */
         _enableKeyboard(keyboardId) {
